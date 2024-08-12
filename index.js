@@ -91,8 +91,32 @@ router.post('/register', async (req, res) =>{
                     })
                 }
             })
-    } catch (e) { 
+    }catch (e) { 
 
+    }
+})
+router.patch('/user/:id', async (req, res) => {
+    try {
+        let data = req.body
+        if (data.pwd) {
+            data.pwd = await hash(data.pwd,  12)
+        }
+        const strQry = `
+        UPDATE Users
+        SET ?
+        WHERE userID = ${req.params.id}
+        `
+        db.query(strQry,[data], (err) => {
+            if (err) throw new Error('Unable to update a user')
+                res.json({
+            status: res.statusCode,
+        msg: 'The user record was updated.'})
+        })
+    } catch (e) {
+        res.json({
+            status: 400,
+            msg: e.message
+        })
     }
 })
 router.get('*', (req, res) => {
