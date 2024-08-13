@@ -31,7 +31,7 @@ router.get("/users", (req, res) => {
         FROM Users;
         `;
     db.query(strQry, (err, result) => {
-      if (err) throw new Error(`Unable to fetch all users`);
+      if (err) throw new Error(`Issue when retrieving all users`);
       res.json({
         status: res.statusCode,
         result: result[0],
@@ -53,7 +53,7 @@ router.get("/user/:id", (req, res) => {
         WHERE userID = ${req.params.id};
         `;
     db.query(strQry, (err, result) => {
-      if (err) throw new Error(`Unable to fetch all users`);
+      if (err) throw new Error(`Issue when retrieving all users`);
       res.json({
         status: res.statusCode,
         result: result[0],
@@ -93,7 +93,9 @@ router.post("/register", async (req, res) => {
         });
       }
     });
-  } catch (e) {}
+  } catch (e) {
+    
+  }
 });
 router.patch("/user/:id", async (req, res) => {
   try {
