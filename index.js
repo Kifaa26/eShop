@@ -194,3 +194,135 @@ router.get("*", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
+
+// //products
+// router.get('/products', (req, res) => {
+//   try {
+//       const strQry = `
+//       SELECT prodID, prodName, category, prodDescription,
+//       prodURL, amount
+//       FROM Products;
+//       `
+//       db.query(strQry, (err, result) => {
+//           if(err) throw new Error(`Unable to fetch all products`)
+//               res.json({
+//           status: res.statusCode,
+//           result: result[0]
+//           })
+//       })
+//   } catch (e) {
+//       res.json({
+//           status: 404,
+//           msg: e.message
+//       })
+//   }
+// })
+// router.get('/product/:id', (req, res) => {
+//   try {
+//       const strQry = `
+//       SELECT prodID, prodName, category, prodDescription,
+//       prodURL, amount
+//       FROM Products
+//       WHERE prodID = ${req.params.id};
+//       `
+//       db.query(strQry, (err, result) => {
+//           if(err) throw new Error(`Unable to fetch product`)
+//               res.json({
+//           status: res.statusCode,
+//           result: result[0]
+//           })
+//       })
+//   } catch (e) {
+//       res.json({
+//           status: 404,
+//           msg: e.message
+//       })
+//   }
+// })
+// router.post('/addproduct', async (req, res) =>{
+//   try {
+//       let data = req.body
+//       //Payload
+//       let product = {
+//           prodID: data.prodID,
+//           prodName: data.prodName,
+//           category: data.category,
+//           prodDescription: data.prodDescription,
+//           prodURL: data.prodURL,
+//           amount: data.amount
+//       }
+//       let strQry = `
+//       INSERT INTO Products
+//       SET ?;
+//       `
+//       db.query(strQry, [data, (err) => {
+//           if(err){
+//               res.json({
+//                   status: res.statusCode,
+//                   msg: 'This product has already been registered'
+//               })
+//           } else {
+//               const token = createToken(user)
+//               res.json({
+//                   token,
+//                   msg: 'This product is now registered.'
+//               })
+//           }
+//       }])
+//   }catch (e) {
+//       res.json({
+//           status: 404,
+//           msg: e.message
+//       })
+//   }
+// })
+// router.patch('/product/:id', async (req, res) => {
+//   try {
+//       let data = req.body
+//       const strQry = `
+//       UPDATE Product
+//       SET ?
+//       WHERE prodID = ${req.params.id}
+//       `
+//       db.query(strQry,[data], (err) => {
+//           if (err) throw new Error('Unable to update a product')
+//               res.json({
+//           status: res.statusCode,
+//       msg: 'The product record was updated'})
+//       })
+//   } catch (e) {
+//       res.json({
+//           status: 400,
+//           msg: e.message
+//       })
+//   }
+// })
+// router.delete('/product/:id', (req, res) => {
+//   try {
+//       const strQry = `
+//       DELETE FROM Products
+//       WHERE prodID = ${req.params.id};
+//       `
+//       db.query(strQry, (err) => {
+//           if(err) throw new Error('To delete a product, please review your delete query.')
+//           res.json({
+//           status: res.statusCode,
+//           msg: 'A product\'s information was removed.'
+//           })
+//       })
+//   } catch (e) {
+//       res.json({
+//           status: 404,
+//           msg: e.message
+//       })
+//   }
+// })
+// router.get('*', (req, res) => {
+//   res.json({
+//       status: 404,
+//       msg: 'Resource not found'
+//   })
+// })
+// app.listen(port, () => {
+//   console.log(`Server is running on ${port}`);
+// })
