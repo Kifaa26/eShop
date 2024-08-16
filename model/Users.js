@@ -10,11 +10,11 @@ class Users {
                 emailAdd, userRole, profileURL
                 FROM Users;
                 `;
-            db.query(strQry, (err, result) => {
+            db.query(strQry, (err, results) => {
               if (err) throw new Error(`Issue when retrieving all users`);
               res.json({
                 status: res.statusCode,
-                result: result[0],
+                results
               });
             });
           } catch (e) {

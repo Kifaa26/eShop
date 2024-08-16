@@ -23,11 +23,11 @@ productRouter.post('/add', verifyAToken, (req, res) => {
     products.addProduct(req, res)
 })
 
-productRouter.patch('/:id', verifyAToken (req, res) => {
+productRouter.patch('/:id', verifyAToken, (req, res) => {
     products.updateProduct(req, res)
 })
 
-productRouter.delete('/:id', verifyAToken (req, res) => {
+productRouter.delete('/:id', verifyAToken, (req, res) => {
     products.deleteProduct(req, res)
 })
 
