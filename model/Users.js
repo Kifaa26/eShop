@@ -98,7 +98,7 @@ class Users {
           } catch (e) {
             res.json({
               status: 400,
-              msg: e.message,
+              err: e.message,
             });
           }
     }
@@ -119,7 +119,7 @@ class Users {
           } catch (e) {
             res.json({
               status: 404,
-              msg: e.message,
+              err: e.message,
             });
           }
     }
