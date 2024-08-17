@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 *,
 *::after,
 *::before{
@@ -5,6 +6,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* :root {
+  font-family: "Averia Serif Libre", 'sans-serif';
+} */
 
 ::-webkit-scrollbar{
     display: none;
@@ -16,7 +21,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #000000;
   }
   
   nav {
@@ -25,9 +30,22 @@
   
   nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #000000;
   }
   
   nav a.router-link-exact-active {
-    color: #42b983;
+    color: #000000;
   }
+
+  navbar {
+    & img[alt='logo'] {
+        width: 5rem;
+    }
+}
+
+/* wrapper */
+:is(.wrapper){
+  display: grid;
+  grid-template-rows: auto minmax(100dvh, 100%) auto;
+} 
+
