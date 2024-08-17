@@ -5,7 +5,7 @@ import { users } from '../model/index.js';
 const userRouter = express.Router()
 userRouter.use(bodyParser.json())
 
-userRouter.get('/', (req, res) => {
+userRouter.get('/',  (req, res) => {
     users.fetchUsers(req, res)
 })
 
